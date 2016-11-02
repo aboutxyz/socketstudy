@@ -15,7 +15,7 @@ def sendThreadFunc():
     while True:
         try:
             myword = raw_input()
-            sock.send(myword.encode())
+            sock.send(myword)
             #print(sock.recv(1024).decode())
         except socket.error:
             break
