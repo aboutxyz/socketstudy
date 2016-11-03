@@ -4,16 +4,18 @@
 # 1 创建套接字，连接远端地址
        # # socket.socket(socket.AF_INET,socket.SOCK_STREAM) , s.connect()
 # 2 连接后发送数据和接收数据          # s.sendall(), s.recv()
+    # send  python2是支持str, python3用的是bytes
 # 3 传输完毕后，关闭套接字          #s.close()
 
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(('127.0.0.1', 5550))
+s.send('success')
 
-while 1:
+while True:
     try:
-        data = raw_input('test:')
+        data = raw_input(u'please input your message: ')
         s.send(data)
         print data
     except:
