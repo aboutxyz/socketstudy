@@ -26,6 +26,10 @@ def addclient(client):
             print data
             # print client.getsockname()
             print client.fileno()
+            try:
+                client.send(data)
+            except:
+                pass
         except:
             pass
 
