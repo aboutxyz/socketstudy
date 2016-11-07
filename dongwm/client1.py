@@ -6,7 +6,8 @@ from optparse import OptionParser
 import MySQLdb
 #from multiprocessing import Process
 
-
+ownhost = '127.0.0.1'
+ownport = '8989'
 host = '127.0.0.1'
 textport = '8888'
 cv = Condition()  #Condition比lock功能多
@@ -149,8 +150,8 @@ class MYtalk(MYconnt):
                     self.mysqlconnt.close()
                 if not len(buf):
                     break
-                print "%s says: %s" % (self.s.getpeername(),buf)
-                self.mysqlconnt.insert('Client',self.s.getpeername()[0],buf.split(']')[0][1:],buf.split(']')[1])
+                print "%s says: %s" % ((ownhost,ownport),buf)
+                self.mysqlconnt.insert('Client',ownhost,buf.split(']')[0][1:],buf.split(']')[1])
         elif th == 'rev':
             while 1:
 

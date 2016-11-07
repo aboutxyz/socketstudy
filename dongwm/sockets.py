@@ -10,7 +10,7 @@ from optparse import OptionParser
 
 host = ''
 port = 8888
-MAXTHREADS = 3
+MAXTHREADS = 12
 lockpool = Lock()
 busylist = {}
 waitinglist = {}
